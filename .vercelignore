@@ -1,0 +1,9 @@
+# Vercel serves only the exported page: index.html, static/ and media/
+src
+templates
+target
+data
+Cargo.toml
+Cargo.lock
+STRATEGIYA.md
+README.md
