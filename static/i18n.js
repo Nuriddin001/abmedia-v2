@@ -68,7 +68,7 @@ const L = {
   "calc_h": "Your numbers",
   "c_reach": "Monthly ad reach",
   "c_cta": "Send with this estimate",
-  "j_sum": "<b>+{n}</b> buyers a month on the same budget. Each one <b>{x}×</b> cheaper.",
+  "j_sum": "<b>+{n}</b> buyers a month on the same budget. Each one costs <b>{x}×</b> less.",
   "j_note": "Estimated model. Exact numbers in the free business audit.",
   "calc_l": "Journey estimate",
   "calc_s": "{r} reach → +{n} buyers a month",
@@ -84,7 +84,7 @@ const L = {
   "cs_less": "Show less",
   "k_views": "views",
   "open_case": "Open case",
-  "more": "+{n} more projects. On the call we show your industry.",
+  "more": "+{n} more projects. On the call we'll show work from your industry.",
   "f_eb": "What we fix",
   "f_h": "Others leave it. We fix it.",
   "fixes": [
@@ -116,7 +116,7 @@ const L = {
   "why_eb": "Why Abror",
   "why_h": "One team. From story to market.",
   "why": [
-   "Story, launch and campaign in one hand",
+   "Story, launch and campaign under one roof",
    "Stories for Uztelecom, Asaka Motors and Good Day",
    "Works with your team or agency",
    "Built for awareness and trust"
@@ -338,7 +338,7 @@ const L = {
   "e_rate": "Demasiados intentos. Prueba un poco más tarde.",
   "name": "Abror Bakhtiyarovich",
   "role": "Storytelling y go-to-market, AB Media",
-  "bar": "Solicita en 5 min y llévate un bonus:",
+  "bar": "Solicita en 5 min y llévate un bono:",
   "nav": [
    "Recorrido",
    "Trabajos",
@@ -349,8 +349,8 @@ const L = {
   "hero_tag": "Storytelling y campañas go-to-market para notoriedad y confianza",
   "hero_cta": "Auditoría de negocio gratis",
   "hero_line": "Que te conozcan.\nQue confíen en ti.",
-  "cue": "Desliza para ver",
-  "hero_q": "¿Por qué 88 de cada 100 olvidan tu anuncio?",
+  "cue": "Desplázate para ver",
+  "hero_q": "¿Por qué 88 de cada 100 personas olvidan tu anuncio?",
   "reel_now": "En pantalla",
   "cur_play": "Ver",
   "mf_eb": "Manifiesto",
@@ -394,9 +394,9 @@ const L = {
    "Con nuestra campaña"
   ],
   "calc_h": "Tus números",
-  "c_reach": "Alcance mensual",
+  "c_reach": "Alcance publicitario mensual",
   "c_cta": "Enviar con este cálculo",
-  "j_sum": "<b>+{n}</b> compradores al mes con el mismo presupuesto. Cada uno <b>{x}×</b> más barato.",
+  "j_sum": "<b>+{n}</b> compradores al mes con el mismo presupuesto. Cada uno cuesta <b>{x}×</b> menos.",
   "j_note": "Modelo estimado. Cifras exactas en la auditoría de negocio gratuita.",
   "calc_l": "Cálculo del recorrido",
   "calc_s": "Alcance {r} → +{n} compradores al mes",
@@ -404,7 +404,7 @@ const L = {
   "d_h": "Los anuncios se apagan. Las historias se quedan.",
   "d_ad": "Anuncios sueltos",
   "d_film": "Campaña con historia",
-  "d_end": "Fin del presupuesto",
+  "d_end": "Fin del presupuesto publicitario",
   "d_y": "Atención",
   "cs_eb": "Trabajos",
   "cs_h": "Historias que hemos contado",
@@ -412,9 +412,9 @@ const L = {
   "cs_less": "Mostrar menos",
   "k_views": "vistas",
   "open_case": "Ver caso",
-  "more": "+{n} proyectos más. En la llamada te mostramos tu sector.",
+  "more": "+{n} proyectos más. En la llamada te mostramos trabajos de tu sector.",
   "f_eb": "Lo que arreglamos",
-  "f_h": "Otros lo dejan así. Nosotros no.",
+  "f_h": "Otros lo dejan así. Nosotros lo arreglamos.",
   "fixes": [
    [
     "Nadie recuerda la marca",
@@ -444,10 +444,10 @@ const L = {
   "why_eb": "Por qué Abror",
   "why_h": "Un equipo. De la historia al mercado.",
   "why": [
-   "Historia, lanzamiento y campaña en una sola mano",
+   "Historia, lanzamiento y campaña en manos de un solo equipo",
    "Historias para Uztelecom, Asaka Motors y Good Day",
    "Trabaja con tu equipo o agencia",
-   "Hecho para notoriedad y confianza"
+   "Pensado para generar notoriedad y confianza"
   ],
   "how_eb": "Proceso",
   "how_h": "De la auditoría al mercado",
@@ -456,7 +456,7 @@ const L = {
    "Con tu equipo"
   ],
   "mode_d": [
-   "De la auditoría al mercado, y lo mantenemos en marcha.",
+   "Lo llevamos de la auditoría al mercado y lo mantenemos en marcha.",
    "Tu equipo crea el contenido. Nosotros llevamos la historia y el lanzamiento."
   ],
   "chip": {
@@ -480,7 +480,7 @@ const L = {
    ],
    [
     "Contenido",
-    "Videos, reels y posts que la llevan"
+    "Videos, reels y posts que la cuentan"
    ],
    [
     "Go-to-market",
@@ -510,7 +510,7 @@ const L = {
    "agency": "Un equipo de contenido"
   },
   "b_dist": {
-   "yes": "Sí, llevadla",
+   "yes": "Sí, llévenla",
    "no": "No, la llevamos nosotros"
   },
   "r_format": "Formato",
@@ -539,7 +539,7 @@ const L = {
   "rq_eb": "Auditoría de negocio gratis",
   "rq_h": "Lancemos tu historia",
   "rq_p": "Deja tus datos. Abror te llama.",
-  "nx_h": "Después",
+  "nx_h": "Próximos pasos",
   "nx": [
    "Abror lee tu solicitud",
    "Llamada de 30 min: auditoría de negocio",
@@ -553,7 +553,7 @@ const L = {
   "privacy": "Solo lo usamos para contactarte sobre tu proyecto.",
   "e_name": "Escribe tu nombre.",
   "e_phone": "Escribe un teléfono válido.",
-  "e_email": "Escribe un email válido, por ejemplo name@gmail.com.",
+  "e_email": "Escribe un email válido, por ejemplo nombre@gmail.com.",
   "done_h": "¡Corten! Solicitud recibida.",
   "ok": "Gracias, {n}. Abror te contactará por teléfono o email.",
   "again": "Enviar otra solicitud",
@@ -609,7 +609,7 @@ const L = {
    "Uztelecom": "Telecomunicaciones",
    "Asaka Motors": "Automoción",
    "ZO'R TV": "Canal de TV",
-   "To'xtaniyoz Ota": "Cárnicos"
+   "To'xtaniyoz Ota": "Productos cárnicos"
   },
   "l_exec": "Productora",
   "l_task": "Encargo",
@@ -674,7 +674,7 @@ const L = {
    "Вопросы"
   ],
   "cta": "Бесплатный бизнес-аудит",
-  "hero_tag": "Сторителлинг и go-to-market кампании для узнаваемости и доверия",
+  "hero_tag": "Сторителлинг и кампании go-to-market для узнаваемости и доверия",
   "hero_cta": "Бесплатный бизнес-аудит",
   "hero_line": "Вас узнают.\nВам доверяют.",
   "cue": "Листайте, чтобы смотреть",
@@ -722,9 +722,9 @@ const L = {
    "С нашей кампанией"
   ],
   "calc_h": "Ваши цифры",
-  "c_reach": "Охват в месяц",
+  "c_reach": "Рекламный охват в месяц",
   "c_cta": "Отправить с этим расчётом",
-  "j_sum": "<b>+{n}</b> покупателей в месяц при том же бюджете. Каждый в <b>{x}×</b> дешевле.",
+  "j_sum": "<b>+{n}</b> покупателей в месяц при том же бюджете. Каждый в <b>{x} раза</b> дешевле.",
   "j_note": "Оценочная модель. Точные цифры — на бесплатном бизнес-аудите.",
   "calc_l": "Расчёт пути клиента",
   "calc_s": "Охват {r} → +{n} покупателей в месяц",
@@ -732,7 +732,7 @@ const L = {
   "d_h": "Реклама гаснет. История остаётся.",
   "d_ad": "Разовая реклама",
   "d_film": "Кампания с историей",
-  "d_end": "Бюджет закончился",
+  "d_end": "Рекламный бюджет закончился",
   "d_y": "Внимание",
   "cs_eb": "Работы",
   "cs_h": "Истории, которые мы рассказали",
@@ -740,9 +740,9 @@ const L = {
   "cs_less": "Свернуть",
   "k_views": "просмотров",
   "open_case": "Открыть кейс",
-  "more": "Ещё +{n} проектов. На звонке покажем вашу отрасль.",
+  "more": "Ещё +{n} проектов. На звонке покажем работы из вашей отрасли.",
   "f_eb": "Что мы исправляем",
-  "f_h": "Другие оставляют. Мы исправляем.",
+  "f_h": "Другие оставляют как есть. Мы исправляем.",
   "fixes": [
    [
     "Бренд никто не помнит",
@@ -766,7 +766,7 @@ const L = {
    ],
    [
     "Результат не измерить",
-    "Узнаваемость до и после"
+    "Замеряем узнаваемость до и после"
    ]
   ],
   "why_eb": "Почему Аброр",
@@ -775,7 +775,7 @@ const L = {
    "История, запуск и кампания в одних руках",
    "Истории для Uztelecom, Asaka Motors и Good Day",
    "Работает с вашей командой или агентством",
-   "Создано для узнаваемости и доверия"
+   "Работает на узнаваемость и доверие"
   ],
   "how_eb": "Процесс",
   "how_h": "От аудита до рынка",
@@ -808,7 +808,7 @@ const L = {
    ],
    [
     "Контент",
-    "Видео, рилсы и посты, которые её несут"
+    "Видео, рилсы и посты, которые её рассказывают"
    ],
    [
     "Go-to-market",
@@ -816,7 +816,7 @@ const L = {
    ],
    [
     "Ведение и замер",
-    "Ведём кампанию и меряем узнаваемость и доверие"
+    "Ведём кампанию и измеряем узнаваемость и доверие"
    ]
   ],
   "b_eb": "Планировщик",
@@ -830,12 +830,12 @@ const L = {
    "launch": "Нас не знают",
    "trust": "Нам не доверяют",
    "explain": "Не понимают, что мы делаем",
-   "social": "Социальная идея"
+   "social": "Социальный посыл"
   },
   "b_have": {
    "task": "Только цель",
    "idea": "Идея",
-   "agency": "Команда по контенту"
+   "agency": "Своя контент-команда"
   },
   "b_dist": {
    "yes": "Да, ведите",
@@ -867,10 +867,10 @@ const L = {
   "rq_eb": "Бесплатный бизнес-аудит",
   "rq_h": "Давайте запустим вашу историю",
   "rq_p": "Оставьте контакты. Аброр перезвонит.",
-  "nx_h": "Дальше",
+  "nx_h": "Что дальше",
   "nx": [
    "Аброр читает заявку",
-   "30 минут: бизнес-аудит",
+   "30-минутный звонок: бизнес-аудит",
    "Концепция + бюджет"
   ],
   "slots": "Свободных мест в этом месяце: {n}.",
@@ -902,7 +902,7 @@ const L = {
    ],
    [
     "Вы снимаете фильмы?",
-    "Мы не продакшн-студия. Мы строим историю и ведём go-to-market кампанию; контент, включая видео, создаётся под эту историю."
+    "Мы не продакшн-студия. Мы строим историю и ведём кампанию go-to-market; контент, включая видео, создаётся под эту историю."
    ],
    [
     "Что значит go-to-market?",
@@ -918,7 +918,7 @@ const L = {
    ],
    [
     "Сколько это стоит?",
-    "Зависит от рынка, каналов и контента. Бюджет — после аудита."
+    "Зависит от рынка, каналов и контента. Бюджет назовём после звонка-аудита."
    ]
   ],
   "foot": "Сторителлинг и go-to-market для узнаваемости и доверия.",
@@ -932,9 +932,9 @@ const L = {
    "Sales Doctor Academy": "Бизнес-образование",
    "Grand Capital": "Недвижимость",
    "Yuksalish Choy": "Чай",
-   "IMZO": "Дверные рамы",
+   "IMZO": "Дверные коробки",
    "Good Day Cappuccino": "Кофейный напиток",
-   "Uztelecom": "Телеком",
+   "Uztelecom": "Телекоммуникации",
    "Asaka Motors": "Автомобили",
    "ZO'R TV": "Телеканал",
    "To'xtaniyoz Ota": "Мясная продукция"
@@ -957,9 +957,9 @@ const L = {
    "prod": "Съёмка",
    "post": "Постпродакшн",
    "dist": "Выход и замер",
-   "preS": "Надзор за препродакшном",
-   "prodS": "Надзор за съёмкой",
-   "postS": "Надзор за постпродакшном",
+   "preS": "Контроль препродакшна",
+   "prodS": "Контроль съёмки",
+   "postS": "Контроль постпродакшна",
    "aud": "Бизнес-аудит",
    "pos": "Позиционирование",
    "story": "Сторителлинг",
@@ -1006,7 +1006,7 @@ const L = {
   "hero_cta": "تدقيق أعمال مجاني",
   "hero_line": "ليعرفوك.\nوليثقوا بك.",
   "cue": "مرّر للتشغيل",
-  "hero_q": "لماذا ينسى 88 من كل 100 إعلانك؟",
+  "hero_q": "لماذا ينسى 88 شخصًا من كل 100 إعلانك؟",
   "reel_now": "على الشاشة",
   "cur_play": "شاهد",
   "mf_eb": "البيان",
@@ -1052,7 +1052,7 @@ const L = {
   "calc_h": "أرقامك",
   "c_reach": "الوصول الشهري للإعلان",
   "c_cta": "أرسل مع هذا التقدير",
-  "j_sum": "<b>+{n}</b> مشترٍ شهريًا بنفس الميزانية. كل مشترٍ أرخص <b>{x}×</b>.",
+  "j_sum": "<b>+{n}</b> مشترٍ شهريًا بنفس الميزانية. وتكلفة كل مشترٍ أقل بمعامل <b>{x}</b>.",
   "j_note": "نموذج تقديري. الأرقام الدقيقة في تدقيق الأعمال المجاني.",
   "calc_l": "تقدير رحلة العميل",
   "calc_s": "وصول {r} ← +{n} مشترٍ شهريًا",
@@ -1060,14 +1060,14 @@ const L = {
   "d_h": "الإعلان يتوقف. القصة تبقى.",
   "d_ad": "إعلانات عابرة",
   "d_film": "حملة بقصة",
-  "d_end": "انتهت الميزانية",
+  "d_end": "انتهاء ميزانية الإعلان",
   "d_y": "الانتباه",
   "cs_eb": "أعمالنا",
   "cs_h": "قصص رويناها",
   "cs_more": "المزيد من الفيديوهات",
   "cs_less": "عرض أقل",
   "k_views": "مشاهدة",
-  "open_case": "افتح العمل",
+  "open_case": "اعرض العمل",
   "more": "+{n} مشروعًا آخر. في المكالمة نعرض أعمالًا من مجالك.",
   "f_eb": "ما نصلحه",
   "f_h": "غيرنا يتركه. نحن نصلحه.",
@@ -1082,7 +1082,7 @@ const L = {
    ],
    [
     "محتوى بلا خطة",
-    "كل قطعة تخدم قصة واحدة"
+    "كل مادة تخدم قصة واحدة"
    ],
    [
     "خمسة متعهدين بلا مسؤول",
@@ -1100,7 +1100,7 @@ const L = {
   "why_eb": "لماذا أبرور",
   "why_h": "فريق واحد. من القصة إلى السوق.",
   "why": [
-   "القصة والإطلاق والحملة في يد واحدة",
+   "القصة والإطلاق والحملة تحت إدارة واحدة",
    "قصص لـ Uztelecom وAsaka Motors وGood Day",
    "يعمل مع فريقك أو وكالتك",
    "مصمَّم للشهرة والثقة"
@@ -1136,7 +1136,7 @@ const L = {
    ],
    [
     "المحتوى",
-    "فيديوهات ومقاطع ومنشورات تحملها"
+    "فيديوهات ومقاطع ومنشورات تنقلها"
    ],
    [
     "الدخول إلى السوق",
@@ -1503,7 +1503,7 @@ const CASES = [
   ],
   "t": {
    "en": [
-    "An information film with Sarvar and Komil showing the advantages of Grand Capital homes.",
+    "An explainer film with Sarvar and Komil showing the advantages of Grand Capital homes.",
     "Sarvar and Komil can't find a home that suits their taste. After a presentation, they fall for the homes built by Grand Capital."
    ],
    "es": [
@@ -1512,7 +1512,7 @@ const CASES = [
    ],
    "ru": [
     "Информационный ролик с Сарваром и Комилом о преимуществах домов Grand Capital.",
-    "Сарвар и Комил не могут найти дом по своему вкусу. После презентации им нравятся дома, построенные Grand Capital."
+    "Сарвар и Комил не могут найти дом по своему вкусу. После презентации они влюбляются в дома, построенные Grand Capital."
    ],
    "ar": [
     "فيلم تعريفي بمشاركة سرور وكامل يُبرز مزايا منازل Grand Capital.",
@@ -1620,8 +1620,8 @@ const CASES = [
     "Antes los marcos de puerta se pedían a Taskent y había que esperar días; cualquier defecto implicaba volver a Taskent y esperar otra vez. Ahora Imzo está en tu ciudad y no hace falta esperar."
    ],
    "ru": [
-    "Сообщить людям, что производство рам Imzo запущено в Самарканде, Фергане и других городах.",
-    "Раньше дверные рамы заказывали в Ташкенте и ждали несколько дней, а при любом дефекте везли обратно в Ташкент и снова ждали. Теперь Imzo в вашем городе, и ждать не нужно."
+    "Сообщить людям, что производство дверных коробок Imzo запущено в Самарканде, Фергане и других городах.",
+    "Раньше дверные коробки заказывали в Ташкенте и ждали несколько дней, а при любом дефекте везли обратно в Ташкент и снова ждали. Теперь Imzo в вашем городе, и ждать не нужно."
    ],
    "ar": [
     "إبلاغ الناس بأن إنتاج إطارات Imzo انطلق في سمرقند وفرغانة ومدن أخرى.",
@@ -1676,7 +1676,7 @@ const CASES = [
     "Personas que pasan sus días en el bazar, en la obra, en el aula, en la calle y en la oficina cantan felices por haber encontrado el capuchino que querían."
    ],
    "ru": [
-    "Вывести Good Day Cappuccino на рынок Узбекистана. Показать, что по вкусу он близок к свежесваренному капучино, но дешевле, и что он подходит людям разных слоёв и возрастов, в музыкальной рекламе, которая запоминается на слух.",
+    "Вывести Good Day Cappuccino на рынок Узбекистана. Показать, что по вкусу он близок к свежесваренному капучино, но дешевле, и что он подходит людям разных слоёв и возрастов, в музыкальной рекламе, которая врезается в память.",
     "Люди, которые проводят дни на базаре, на стройке, на учёбе, на улице и в офисе, поют от радости, найдя тот капучино, который хотели."
    ],
    "ar": [
@@ -1729,7 +1729,7 @@ const CASES = [
    ],
    "es": [
     "Mostrar de forma creativa lo que Uztelecom logró en cinco años.",
-    "Antes y ahora, a través de los clientes de Uztelecom: cómo cambió la vida de los usuarios de internet."
+    "Antes y ahora, a través de los clientes de Uztelecom: cómo cambió la vida de los usuarios de internet en cinco años."
    ],
    "ru": [
     "Креативно показать, чего Uztelecom добился за пять лет.",
@@ -1781,7 +1781,7 @@ const CASES = [
     "El auto premium EXEED ya está en Uzbekistán."
    ],
    "ru": [
-    "Видеопрезентация об автомобилях EXEED, которые выпускает Asaka Motors, для церемонии презентации EXEED.",
+    "Видеопрезентация об автомобилях EXEED, которые выпускает Asaka Motors, для церемонии запуска EXEED.",
     "Премиальный автомобиль EXEED теперь в Узбекистане."
    ],
    "ar": [
@@ -1836,7 +1836,7 @@ const CASES = [
     "Un niño en edad escolar ve a su madre soplar por un tubo largo para avivar el fuego del fogón, y la llama prende. Entonces intenta encender los focos soplando por el mismo tubo."
    ],
    "ru": [
-    "Социальный ролик об экономии электроэнергии. Зритель должен всерьёз задуматься о ней.",
+    "Социальный ролик об экономии электроэнергии. Зритель должен всерьёз задуматься об этом.",
     "Школьник видит, как мама дует в длинную трубу, чтобы раздуть огонь в очаге, и огонь разгорается. Тогда он пытается через ту же трубу зажечь лампочки."
    ],
    "ar": [
