@@ -18,7 +18,7 @@ const finePointer = matchMedia("(hover: hover) and (pointer: fine)").matches;
 /* phones get light copies of the films (media/m/: 854 px, no sound, ~4x smaller) for the wordmark, the previews
    and the planner, so the photos are not stuck behind 14 MB downloads; the viewing room always plays the full film */
 const LITE = matchMedia("(pointer: coarse)").matches || matchMedia("(max-width: 760px)").matches;
-const vsrc = name => "/media/" + (LITE ? "m/" : "") + name + ".mp4";
+const vsrc = name => "media/" + (LITE ? "m/" : "") + name + ".mp4";
 /* on phones the films wait until the page and its photos have arrived: on a slow connection the text and the photos come first */
 const afterLoad = fn => { if (document.readyState === "complete") setTimeout(fn, 600); else addEventListener("load", () => setTimeout(fn, 600), { once: true }); };
 let pageReady = !LITE;
@@ -73,7 +73,7 @@ const hv = [$("#hv0"), $("#hv1")];
 function clipStart(v){ const d = v.duration || 60; return Math.min(12, d * .12); }
 function showClip(k){
   reel.i = k; const c = CASES[MONT[k]], v = hv[reel.a], other = hv[1 - reel.a];
-  v.poster = "/media/" + c.video + ".jpg";
+  v.poster = "media/" + c.video + ".jpg";
   if (!pageReady) { v.classList.add("on"); nowTag(); return; }
   if (!v.dataset.src || v.dataset.src !== c.video) { v.dataset.src = c.video; v.src = vsrc(c.video); v.preload = "auto"; }
   const go = () => { try { v.currentTime = clipStart(v); } catch (e) {} const p = v.play(); if (p && p.catch) p.catch(() => {}); v.classList.add("on"); other.classList.remove("on"); setTimeout(() => { if (!other.classList.contains("on")) other.pause(); }, 1300); };
@@ -294,7 +294,7 @@ function card(i, k){
   const media = el("button", "cc-media dev"); media.type = "button"; media.dataset.cursor = "play"; media.dataset.video = c.video;
   media.setAttribute("aria-label", t.open_case + ": " + c.client);
   /* "lazy" must be set before the address, or the photo downloads at once even far down the page */
-  const im = el("img"); im.loading = "lazy"; im.decoding = "async"; im.src = "/media/" + c.video + ".jpg"; im.alt = "";
+  const im = el("img"); im.loading = "lazy"; im.decoding = "async"; im.src = "media/" + c.video + ".jpg"; im.alt = "";
   const v = el("video"); v.muted = true; v.loop = true; v.playsInline = true; v.setAttribute("playsinline", ""); v.preload = "none";
   media.append(im, v, el("span", "tc", c.dur + (c.bts ? " + " + c.bts.dur : "")));
   media.addEventListener("click", () => openRoom(i));
@@ -436,7 +436,7 @@ function renderResult(){
   let mon = box.querySelector(".mon");
   if (!mon || changed) {
     mon = el("button", "mon"); mon.type = "button"; mon.dataset.cursor = "play";
-    const v = el("video"); v.muted = true; v.loop = true; v.playsInline = true; v.setAttribute("playsinline", ""); v.dataset.poster = "/media/" + cs.video + ".jpg";
+    const v = el("video"); v.muted = true; v.loop = true; v.playsInline = true; v.setAttribute("playsinline", ""); v.dataset.poster = "media/" + cs.video + ".jpg";
     /* the film (and its cover) load only once the planner is near the screen (see runDesk), so they never compete with the photos above */
     if (!reduce) { v.preload = "none"; v.dataset.src = vsrc(cs.video) + "#t=6"; } else v.poster = v.dataset.poster;
     const rec = el("span", "rec"); rec.append(el("i"), document.createTextNode("REC"));
@@ -489,7 +489,7 @@ function renderBrief(){
 const room = $("#room"), rv = $("#room-v");
 function openRoom(i){
   if (i < 0) return;
-  openIdx = i; rv.src = "/media/" + CASES[i].video + ".mp4"; rv.poster = "/media/" + CASES[i].video + ".jpg"; fillRoom();
+  openIdx = i; rv.src = "media/" + CASES[i].video + ".mp4"; rv.poster = "media/" + CASES[i].video + ".jpg"; fillRoom();
   if (room.showModal) room.showModal(); else room.setAttribute("open", "");
   if (M()) M().pause(true);
   const p = rv.play(); if (p && p.catch) p.catch(() => {});
@@ -507,7 +507,7 @@ function fillRoom(){
   const tabs = $("#room-tabs"); tabs.replaceChildren(); tabs.hidden = !c.bts;
   if (c.bts) [[t.v_film, c.video], [t.v_bts, c.bts.video]].forEach(([label, src]) => {
     const b = el("button", null, label); b.type = "button"; b.setAttribute("aria-pressed", String(rv.src.endsWith("/" + src + ".mp4")));
-    b.addEventListener("click", () => { rv.src = "/media/" + src + ".mp4"; rv.poster = "/media/" + src + ".jpg"; const p = rv.play(); if (p && p.catch) p.catch(() => {}); tabs.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", String(x === b))); });
+    b.addEventListener("click", () => { rv.src = "media/" + src + ".mp4"; rv.poster = "media/" + src + ".jpg"; const p = rv.play(); if (p && p.catch) p.catch(() => {}); tabs.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", String(x === b))); });
     tabs.append(b);
   });
 }
@@ -518,9 +518,9 @@ room.addEventListener("close", () => { rv.pause(); rv.removeAttribute("src"); rv
 
 /* ---------- 10 request: three frames ---------- */
 const SHOTS = [
-  { img: "/media/portrait.jpg", pos: "30% 40%" },
-  { img: "/media/abror-timessquare.jpg", pos: "50% 38%" },
-  { img: "/media/sales-doctor-backstage.jpg", pos: "50% 45%" }
+  { img: "media/portrait.jpg", pos: "30% 40%" },
+  { img: "media/abror-timessquare.jpg", pos: "50% 38%" },
+  { img: "media/sales-doctor-backstage.jpg", pos: "50% 45%" }
 ];
 function renderFrames(){
   const t = T(), box = $("#frames"), first = !box.children.length;
