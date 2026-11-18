@@ -74,7 +74,8 @@ function nowTag(){ if (reel.i < 0) return; const c = CASES[MONT[reel.i]], m = me
 function initReel(){
   if (!MONT.length) return;
   showClip(0);
-  if (reduce) return;
+  /* phones keep one film in the wordmark: switching 14 MB videos every few seconds stalls a phone */
+  if (reduce || matchMedia("(pointer: coarse)").matches) { new IntersectionObserver(es => { const v = hv[reel.a]; if (es[0].isIntersecting) { const p = v.play(); if (p && p.catch) p.catch(() => {}); } else v.pause(); }).observe($("#top")); $("#now").addEventListener("click", () => openRoom(MONT[reel.i])); return; }
   /* the next clip is loaded early, then cross-fades in */
   reel.timer = setInterval(() => {
     if (document.hidden || !reel.on) return;

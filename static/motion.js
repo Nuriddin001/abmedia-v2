@@ -250,16 +250,10 @@ function stepper(){
     if (t == null) return;
     e.preventDefault(); go(t);
   }, { capture: true });
-  const inside = () => { const cur = y(); return zones().some(s => cur >= s[0] - 2 && cur <= s[s.length - 1] + 2); };
-  let ty = null;
-  addEventListener("touchstart", e => { ty = e.touches[0].clientY; }, { passive: true });
-  addEventListener("touchmove", e => { if (ty == null || locked()) return; const dir = Math.sign(ty - e.touches[0].clientY); if (busy || (dir && inside() && target(dir, y()) != null)) e.preventDefault(); }, { passive: false });
-  addEventListener("touchend", e => {
-    if (ty == null) return; const dy = ty - e.changedTouches[0].clientY; ty = null;
-    if (busy || locked() || Math.abs(dy) < 24) return;
-    const t = target(Math.sign(dy), y() + dy * 3); if (t != null) go(t);
-  }, { passive: true });
-  /* a scroll that comes to rest between two stops inside a scene finishes to the nearest one */
+  /* phones and tablets scroll natively: touches are never intercepted and a touch scroll is never snapped,
+     so the page can't lock up or fight the finger's momentum */
+  if (matchMedia("(pointer: coarse)").matches) return;
+  /* a wheel scroll that comes to rest between two stops inside a scene finishes to the nearest one */
   let restT = 0;
   addEventListener("scroll", () => {
     clearTimeout(restT);

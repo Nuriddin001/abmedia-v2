@@ -84,6 +84,8 @@ em.s,.s{font-family:var(--f-serif);font-style:italic;font-weight:600;letter-spac
 .hd{position:fixed;top:0;left:0;right:0;z-index:50;height:var(--hd);transition:transform .5s var(--ease-out),background-color .4s}
 .hd.solid{background:rgba(8,9,10,.82);backdrop-filter:saturate(1.2) blur(14px);-webkit-backdrop-filter:saturate(1.2) blur(14px)}
 .hd.hide{transform:translateY(-100%)}
+/* phones: no live blur behind the bar, no blended overlays over the video (both cost every frame) */
+@media (pointer:coarse){.hd.solid{background:rgba(8,9,10,.96);backdrop-filter:none;-webkit-backdrop-filter:none}.hero .beam{mix-blend-mode:normal}}
 .hd-in{height:100%;display:flex;align-items:center;gap:clamp(12px,2.4vw,32px)}
 .logo{display:flex;align-items:center;gap:10px;font:700 1rem/1 var(--f-mark);letter-spacing:.02em;white-space:nowrap;direction:ltr}
 .logo i{width:10px;height:10px;border-radius:50%;background:var(--rec);box-shadow:0 0 0 4px rgba(229,72,60,.18);animation:rec 1.6s steps(1) infinite}

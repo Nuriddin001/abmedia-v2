@@ -6,14 +6,17 @@
 (() => {
 "use strict";
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-const dprOf = () => Math.min(window.devicePixelRatio || 1, 2);
+/* phones and tablets get lighter versions of every effect */
+const coarse = matchMedia("(pointer: coarse)").matches;
+const dprOf = () => Math.min(window.devicePixelRatio || 1, coarse ? 1.5 : 2);
 const clamp = (x, a, b) => Math.max(a, Math.min(b, x));
 const ss = (a, b, x) => { const k = clamp((x - a) / (b - a), 0, 1); return k * k * (3 - 2 * k); };
 const FX = window.ABM_FX = {};
 
 /* ---------- grain: six pre-rendered noise tiles, swapped at 12 fps ---------- */
 FX.grain = function(cv){
-  if (reduce) { cv.remove(); return; }
+  /* a full-screen blended overlay redrawn 12 times a second is too much for a phone */
+  if (reduce || coarse) { cv.remove(); return; }
   const g = cv.getContext("2d"), tiles = [];
   for (let k = 0; k < 6; k++) {
     const t = document.createElement("canvas"); t.width = t.height = 160;
@@ -76,6 +79,8 @@ FX.beam = function(cv, host){
   const mouse = { x: -999, y: -999, a: 0, tx: -999, ty: -999 };
   const st = { k: 1 };
   function layout(){
+    /* phones resize the page whenever the address bar slides; skip the costly repaint for such small changes */
+    if (coarse && cone && host.clientWidth === W && Math.abs(host.clientHeight - H) < 160) return;
     const d = dprOf(); W = host.clientWidth; H = host.clientHeight;
     cv.width = W * d; cv.height = H * d; g.setTransform(d, 0, 0, d, 0, 0);
     /* the cone is painted once, blurred, then reused */
@@ -85,7 +90,7 @@ FX.beam = function(cv, host){
     const gr = c.createLinearGradient(0, sy, 0, H);
     gr.addColorStop(0, "rgba(255,214,150,.42)"); gr.addColorStop(.45, "rgba(244,166,42,.12)"); gr.addColorStop(1, "rgba(244,166,42,0)");
     c.fillStyle = gr; c.beginPath(); c.moveTo(sx - 8, sy); c.lineTo(sx + 8, sy); c.lineTo(W * .98, H * 1.05); c.lineTo(W * .02, H * 1.05); c.closePath(); c.fill();
-    const n = W < 700 ? 140 : 300;
+    const n = coarse ? 70 : W < 700 ? 140 : 300;
     dust = Array.from({ length: n }, () => ({ x: Math.random() * W, y: Math.random() * H, r: .4 + Math.random() * 1.6, vx: (Math.random() - .5) * 6, vy: -2 - Math.random() * 6, ph: Math.random() * 6.28 }));
   }
   const inCone = (x, y) => { const sy = -H * .18, k = (y - sy) / (H * 1.05 - sy); const half = 8 + k * (W * .48); return Math.abs(x - W * .5) < half ? 1 - Math.abs(x - W * .5) / half : 0; };
