@@ -15,6 +15,10 @@ const $ = s => document.querySelector(s);
 const $$ = s => Array.from(document.querySelectorAll(s));
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const finePointer = matchMedia("(hover: hover) and (pointer: fine)").matches;
+/* phones get light copies of the films (media/m/: 854 px, no sound, ~4x smaller) for the wordmark, the previews
+   and the planner, so the photos are not stuck behind 14 MB downloads; the viewing room always plays the full film */
+const LITE = matchMedia("(pointer: coarse)").matches || matchMedia("(max-width: 760px)").matches;
+const vsrc = name => "/media/" + (LITE ? "m/" : "") + name + ".mp4";
 const el = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
 const NS = "http://www.w3.org/2000/svg";
 function icon(id, cls){ const s = document.createElementNS(NS, "svg"); s.setAttribute("class", "ic" + (cls ? " " + cls : "")); s.setAttribute("aria-hidden", "true"); const u = document.createElementNS(NS, "use"); u.setAttribute("href", "#i-" + id); s.append(u); return s; }
@@ -65,7 +69,7 @@ const hv = [$("#hv0"), $("#hv1")];
 function clipStart(v){ const d = v.duration || 60; return Math.min(12, d * .12); }
 function showClip(k){
   reel.i = k; const c = CASES[MONT[k]], v = hv[reel.a], other = hv[1 - reel.a];
-  if (!v.dataset.src || v.dataset.src !== c.video) { v.dataset.src = c.video; v.src = "/media/" + c.video + ".mp4"; v.poster = "/media/" + c.video + ".jpg"; v.preload = "auto"; }
+  if (!v.dataset.src || v.dataset.src !== c.video) { v.dataset.src = c.video; v.src = vsrc(c.video); v.poster = "/media/" + c.video + ".jpg"; v.preload = "auto"; }
   const go = () => { try { v.currentTime = clipStart(v); } catch (e) {} const p = v.play(); if (p && p.catch) p.catch(() => {}); v.classList.add("on"); other.classList.remove("on"); setTimeout(() => { if (!other.classList.contains("on")) other.pause(); }, 1300); };
   if (v.readyState >= 1) go(); else v.addEventListener("loadedmetadata", go, { once: true });
   nowTag();
@@ -322,7 +326,7 @@ function renderCases(){
 function preview(media, on){
   const v = media.querySelector("video");
   if (on && !reduce) {
-    if (!v.src) v.src = "/media/" + media.dataset.video + ".mp4#t=8";
+    if (!v.src) v.src = vsrc(media.dataset.video) + "#t=8";
     const p = v.play(); if (p && p.then) p.then(() => media.classList.add("playing")).catch(() => {});
   } else { v.pause(); media.classList.remove("playing"); }
 }
@@ -332,7 +336,11 @@ function bindPreviews(){
   if (finePointer) medias.forEach(m => { m.addEventListener("mouseenter", () => preview(m, true)); m.addEventListener("mouseleave", () => preview(m, false)); });
   else {
     if (previewIO) previewIO.disconnect();
-    previewIO = new IntersectionObserver(es => es.forEach(e => preview(e.target, e.intersectionRatio > .7)), { threshold: [0, .7, 1] });
+    /* phones: a preview starts only after the film has stayed on screen for a moment, not while you scroll past it */
+    previewIO = new IntersectionObserver(es => es.forEach(e => {
+      const m = e.target; clearTimeout(m._pt);
+      if (e.intersectionRatio > .7) m._pt = setTimeout(() => preview(m, true), 600); else preview(m, false);
+    }), { threshold: [0, .7, 1] });
     medias.forEach(m => previewIO.observe(m));
   }
 }
@@ -422,7 +430,8 @@ function renderResult(){
   if (!mon || changed) {
     mon = el("button", "mon"); mon.type = "button"; mon.dataset.cursor = "play";
     const v = el("video"); v.muted = true; v.loop = true; v.playsInline = true; v.setAttribute("playsinline", ""); v.poster = "/media/" + cs.video + ".jpg";
-    if (!reduce) { v.preload = "metadata"; v.src = "/media/" + cs.video + ".mp4#t=6"; v.autoplay = true; }
+    /* the film loads only once the planner is on screen (see runDesk), so it never competes with the photos above */
+    if (!reduce) { v.preload = "none"; v.dataset.src = vsrc(cs.video) + "#t=6"; }
     const rec = el("span", "rec"); rec.append(el("i"), document.createTextNode("REC"));
     mon.append(v, rec, el("span", "l3"));
     mon.addEventListener("click", () => openRoom(desk.lastCase));
@@ -437,13 +446,17 @@ function renderResult(){
   watch.addEventListener("click", () => openRoom(r.ci));
   acts.append(send, watch);
   box.replaceChildren(mon, panels, acts);
-  if (!reduce) { const v = mon.querySelector("video"); const p = v.play(); if (p && p.catch) p.catch(() => {}); }
-  runDesk();
+  runDesk(); monSync();
+}
+function monSync(){
+  const v = $("#board .mon video"); if (!v || reduce) return;
+  if (desk.on) { if (!v.src && v.dataset.src) { v.src = v.dataset.src; v.preload = "auto"; } const p = v.play(); if (p && p.catch) p.catch(() => {}); }
+  else if (v.src) v.pause();
 }
 /* a light runs along the storyboard, panel by panel */
 function runDesk(){
   if (desk.io) return;
-  desk.io = new IntersectionObserver(es => { desk.on = es[0].isIntersecting && !reduce; if (desk.on && !desk.raf) desk.raf = requestAnimationFrame(step); }, { threshold: .1 });
+  desk.io = new IntersectionObserver(es => { desk.on = es[0].isIntersecting && !reduce; monSync(); if (desk.on && !desk.raf) desk.raf = requestAnimationFrame(step); }, { threshold: .1, rootMargin: "200px 0px" });
   desk.io.observe($("#board"));
   function step(now){
     desk.raf = 0;
