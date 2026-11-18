@@ -128,7 +128,7 @@ mod tests {
         let json = serde_json::to_string(&content::site()).unwrap();
         let page = render_page(&json, false);
         assert!(!page.contains(DATA_SLOT));
-        assert!(page.contains("\"per_month\":"));
+        assert!(page.contains("\"featured\":"));
         assert!(page.contains("window.ABM_PREVIEW = false"));
         assert!(render_page(&json, true).contains("window.ABM_PREVIEW = true"));
     }

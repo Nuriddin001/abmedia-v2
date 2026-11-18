@@ -23,7 +23,7 @@ function init(a){
     document.documentElement.classList.add("lenis");
   }
   anchors(); stepper(); chrome();
-  hero(); manifest(); ticker(); story(); duel(); marquee(); develop(); slats(); process(); frames();
+  hero(); manifest(); story(); duel(); marquee(); develop(); slats(); process(); frames();
   ScrollTrigger.addEventListener("refresh", () => api.layout());
   built = true;
   settle();
@@ -74,8 +74,12 @@ function heroIn(d){
 /* ---------- header, progress, scene rail, offer ---------- */
 function chrome(){
   const hd = $("#hd"), prog = $("#prog");
-  let lastY = 0;
+  let lastY = 0, scene = "";
+  /* the scene in the rail is read from where each section really is on screen, so it can't drift when pins move things */
+  const secs = $$("[data-scene]");
+  const pick = () => { const mid = innerHeight * .55; for (const s of secs) { const r = s.getBoundingClientRect(); if (r.top <= mid && r.bottom > mid) { if (s.dataset.scene !== scene) { scene = s.dataset.scene; api.setScene(scene); } return; } } };
   ScrollTrigger.create({ start: 0, end: "max", onUpdate: s => {
+    pick();
     prog.style.transform = "scaleX(" + s.progress.toFixed(4) + ")";
     const y = s.scroll(), heroEnd = heroST ? heroST.end : innerHeight;
     hd.classList.toggle("solid", y > heroEnd - 80);
@@ -83,7 +87,6 @@ function chrome(){
     if (y < lastY - 4) hd.classList.remove("hide");
     lastY = y;
   } });
-  $$("[data-scene]").forEach(sec => ScrollTrigger.create({ trigger: sec, start: "top 55%", end: "bottom 55%", onToggle: s => { if (s.isActive) api.setScene(sec.dataset.scene); } }));
   ScrollTrigger.create({ trigger: "#manifest", start: "top 70%", once: true, onEnter: () => $("#offer").classList.remove("away") });
   ScrollTrigger.create({ trigger: "#journey", start: "top bottom", endTrigger: "#foot", end: "top bottom", onToggle: s => $("#rail").classList.toggle("off", !s.isActive) });
   $("#rail").classList.add("off");

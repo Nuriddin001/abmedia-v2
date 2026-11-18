@@ -1,4 +1,4 @@
-/* AB Media landing: all texts in 4 languages (EN, ES, RU, AR), people and the 9 cases.
+/* AB Media landing: all texts in 4 languages (EN, ES, RU, AR), people and the 7 cases.
    AB Media builds the story and runs the go-to-market campaign; copy is kept short, the animation tells the story.
    Numbers come from the Rust server (window.ABM_DATA). */
 (function(){
@@ -117,7 +117,7 @@ const L = {
   "why_h": "One team. From story to market.",
   "why": [
    "Story, launch and campaign under one roof",
-   "Stories for Uztelecom, Asaka Motors and Good Day",
+   "Stories for Good Day, Sales Doctor and Yuksalish",
    "Works with your team or agency",
    "Built for awareness and trust"
   ],
@@ -278,8 +278,6 @@ const L = {
    "Yuksalish Choy": "Tea",
    "IMZO": "Door frames",
    "Good Day Cappuccino": "Coffee drink",
-   "Uztelecom": "Telecom",
-   "Asaka Motors": "Automotive",
    "ZO'R TV": "TV channel",
    "To'xtaniyoz Ota": "Meat products"
   },
@@ -445,7 +443,7 @@ const L = {
   "why_h": "Un equipo. De la historia al mercado.",
   "why": [
    "Historia, lanzamiento y campaña en manos de un solo equipo",
-   "Historias para Uztelecom, Asaka Motors y Good Day",
+   "Historias para Good Day, Sales Doctor y Yuksalish",
    "Trabaja con tu equipo o agencia",
    "Pensado para generar notoriedad y confianza"
   ],
@@ -606,8 +604,6 @@ const L = {
    "Yuksalish Choy": "Té",
    "IMZO": "Marcos de puerta",
    "Good Day Cappuccino": "Bebida de café",
-   "Uztelecom": "Telecomunicaciones",
-   "Asaka Motors": "Automoción",
    "ZO'R TV": "Canal de TV",
    "To'xtaniyoz Ota": "Productos cárnicos"
   },
@@ -773,7 +769,7 @@ const L = {
   "why_h": "Одна команда. От истории до рынка.",
   "why": [
    "История, запуск и кампания в одних руках",
-   "Истории для Uztelecom, Asaka Motors и Good Day",
+   "Истории для Good Day, Sales Doctor и Yuksalish",
    "Работает с вашей командой или агентством",
    "Работает на узнаваемость и доверие"
   ],
@@ -934,8 +930,6 @@ const L = {
    "Yuksalish Choy": "Чай",
    "IMZO": "Дверные коробки",
    "Good Day Cappuccino": "Кофейный напиток",
-   "Uztelecom": "Телекоммуникации",
-   "Asaka Motors": "Автомобили",
    "ZO'R TV": "Телеканал",
    "To'xtaniyoz Ota": "Мясная продукция"
   },
@@ -1101,7 +1095,7 @@ const L = {
   "why_h": "فريق واحد. من القصة إلى السوق.",
   "why": [
    "القصة والإطلاق والحملة تحت إدارة واحدة",
-   "قصص لـ Uztelecom وAsaka Motors وGood Day",
+   "قصص لـ Good Day وSales Doctor وYuksalish",
    "يعمل مع فريقك أو وكالتك",
    "مصمَّم للشهرة والثقة"
   ],
@@ -1262,8 +1256,6 @@ const L = {
    "Yuksalish Choy": "الشاي",
    "IMZO": "إطارات الأبواب",
    "Good Day Cappuccino": "مشروب القهوة",
-   "Uztelecom": "الاتصالات",
-   "Asaka Motors": "السيارات",
    "ZO'R TV": "قناة تلفزيونية",
    "To'xtaniyoz Ota": "منتجات اللحوم"
   },
@@ -1682,111 +1674,6 @@ const CASES = [
    "ar": [
     "إدخال Good Day Cappuccino إلى السوق الأوزبكية، وإظهار أن طعمه قريب من الكابتشينو الطازج لكنه أرخص، وأنه يناسب الناس من مختلف الفئات والأعمار، في إعلان موسيقي يعلق في الأذن.",
     "أناس يقضون أيامهم في السوق وفي مواقع البناء وفي أماكن الدراسة وفي الشارع وفي المكتب، يغنّون فرحًا لأنهم وجدوا الكابتشينو الذي أرادوه."
-   ]
-  }
- },
- {
-  "client": "Uztelecom",
-  "exec": "Khabi Media",
-  "video": "uztelecom",
-  "dur": "3:31",
-  "scope": [
-   "preS",
-   "prodS",
-   "postS"
-  ],
-  "mx": "00SSS",
-  "roles": [
-   "r_prod"
-  ],
-  "credits": [
-   [
-    "r_dir",
-    [
-     "HN",
-     "BG"
-    ]
-   ],
-   [
-    "r_prod",
-    [
-     "AB",
-     "BK"
-    ]
-   ],
-   [
-    "r_cam",
-    [
-     "SS",
-     "IL"
-    ]
-   ]
-  ],
-  "t": {
-   "en": [
-    "Show creatively what Uztelecom achieved in five years.",
-    "Then and now, through Uztelecom customers: how internet users' lives have changed in five years."
-   ],
-   "es": [
-    "Mostrar de forma creativa lo que Uztelecom logró en cinco años.",
-    "Antes y ahora, a través de los clientes de Uztelecom: cómo cambió la vida de los usuarios de internet en cinco años."
-   ],
-   "ru": [
-    "Креативно показать, чего Uztelecom добился за пять лет.",
-    "Пять лет назад и сейчас глазами клиентов Uztelecom: как изменилась жизнь интернет-пользователей."
-   ],
-   "ar": [
-    "عرض ما حققته Uztelecom خلال خمس سنوات بأسلوب إبداعي.",
-    "الأمس واليوم بعيون عملاء Uztelecom: كيف تغيّرت حياة مستخدمي الإنترنت خلال خمس سنوات."
-   ]
-  }
- },
- {
-  "client": "Asaka Motors",
-  "exec": "AB Media",
-  "video": "asaka",
-  "dur": "2:21",
-  "scope": [
-   "c",
-   "sVO",
-   "pre",
-   "post"
-  ],
-  "mx": "FFF0F",
-  "roles": [
-   "r_dir",
-   "r_prod"
-  ],
-  "credits": [
-   [
-    "r_dir",
-    [
-     "AB"
-    ]
-   ],
-   [
-    "r_prod",
-    [
-     "AB"
-    ]
-   ]
-  ],
-  "t": {
-   "en": [
-    "A video presentation about the EXEED cars Asaka Motors produces, for the EXEED launch ceremony.",
-    "The EXEED premium car is now in Uzbekistan."
-   ],
-   "es": [
-    "Una presentación en video sobre los autos EXEED que fabrica Asaka Motors, para la ceremonia de lanzamiento de EXEED.",
-    "El auto premium EXEED ya está en Uzbekistán."
-   ],
-   "ru": [
-    "Видеопрезентация об автомобилях EXEED, которые выпускает Asaka Motors, для церемонии запуска EXEED.",
-    "Премиальный автомобиль EXEED теперь в Узбекистане."
-   ],
-   "ar": [
-    "عرض بالفيديو عن سيارات EXEED التي تنتجها Asaka Motors، لحفل إطلاق EXEED.",
-    "سيارة EXEED الفاخرة الآن في أوزبكستان."
    ]
   }
  },

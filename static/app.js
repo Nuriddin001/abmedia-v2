@@ -137,16 +137,6 @@ function setManifest(p){
   });
 }
 
-/* ---------- numbers ticker ---------- */
-function renderTicker(){
-  const t = T(), row = $("#tk"); row.replaceChildren();
-  for (let r = 0; r < 2; r++) [DATA.projects, DATA.years, DATA.total_views, DATA.per_month].forEach((v, i) => {
-    const d = el("div", "tk"); const b = el("b"); odo(b, v); d.append(b, el("span", null, t.stat_l[i])); if (r) d.setAttribute("aria-hidden", "true"); row.append(d);
-  });
-  if (tickerRolled || !MOVES) requestAnimationFrame(() => $$("#tk .odo").forEach(odoRoll));
-}
-let tickerRolled = false;
-function rollTicker(){ tickerRolled = true; $$("#tk .odo").forEach(odoRoll); }
 
 /* ---------- 03 journey: the river ---------- */
 const STAGE_NOW = MODEL.now, STAGE_FILM = MODEL.film;
@@ -285,9 +275,8 @@ function setDuel(p){
 }
 
 /* ---------- 05 work ---------- */
-const ORDER = FEAT.map(byClient).concat(CASES.map((_, i) => i).filter(i => !FEAT.includes(CASES[i].client)));
-const SHOWN = 2;
-let filmsOpen = false;
+const ORDER = FEAT.map(byClient).filter(i => i >= 0);
+const REST = CASES.map((_, i) => i).filter(i => !ORDER.includes(i));
 function card(i, k){
   const t = T(), c = CASES[i], big = FEAT.includes(c.client), m = metric(c.client);
   const cc = el("article", "cc");
@@ -305,25 +294,33 @@ function card(i, k){
   if (big && m.result) cc.append(el("p", "res", tr(m.result)));
   return cc;
 }
-function setFilmsLabel(){
-  const t = T(), btn = $("#more-btn");
-  $("#more-lbl").textContent = filmsOpen ? t.cs_less : t.cs_more;
-  $("#more-n").textContent = filmsOpen ? "" : "+" + (ORDER.length - SHOWN);
-  btn.setAttribute("aria-expanded", String(filmsOpen)); btn.classList.toggle("open", filmsOpen);
+/* the other films sit in a folder; hovering it (tapping on a phone) fans them up one by one like cards */
+const folder = $("#folder");
+const folderOpen = () => folder.classList.contains("open") || folder.matches(":hover");
+function setFolder(on){ folder.classList.toggle("open", on); $("#fd-front").setAttribute("aria-expanded", String(on)); }
+$("#fd-front").addEventListener("click", () => setFolder(!folder.classList.contains("open")));
+document.addEventListener("click", e => { if (!folder.contains(e.target)) setFolder(false); });
+document.addEventListener("keydown", e => { if (e.key === "Escape") setFolder(false); });
+function renderFolder(){
+  const t = T(), box = $("#fd-cards"), n = REST.length; box.replaceChildren();
+  REST.forEach((i, k) => {
+    const c = CASES[i], b = el("button", "fd-card"); b.type = "button"; b.dataset.cursor = "play";
+    b.style.setProperty("--k", k); b.style.setProperty("--o", (k - (n - 1) / 2).toFixed(2));
+    b.setAttribute("aria-label", t.open_case + ": " + c.client);
+    const im = el("img"); im.loading = "lazy"; im.decoding = "async"; im.src = "media/" + c.video + ".jpg"; im.alt = "";
+    const cap = el("span", "fd-cap"); cap.append(el("b", null, c.client), el("i", null, c.dur));
+    b.append(im, cap);
+    /* a closed folder opens on the first tap; a card in an open folder plays its film */
+    b.addEventListener("click", e => { e.stopPropagation(); if (!folderOpen()) return setFolder(true); openRoom(i); });
+    box.append(b);
+  });
+  folder.style.setProperty("--n", n);
+  $("#fd-n").textContent = "+" + n; $("#fd-t").textContent = t.cs_more;
 }
-function toggleFilms(){
-  filmsOpen = !filmsOpen;
-  $("#grid").classList.toggle("open", filmsOpen); setFilmsLabel();
-  if (filmsOpen && window.gsap && !reduce) gsap.fromTo("#grid .cc", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: .9, ease: "expo.out", stagger: .08, clearProps: "opacity,transform" });
-  if (!filmsOpen) { $$("#grid .cc-media").forEach(m => preview(m, false)); goTo("#cases"); }
-  requestAnimationFrame(() => { if (M()) { M().develop(); } });
-}
-$("#more-btn").addEventListener("click", toggleFilms);
 function renderCases(){
-  const t = T(), feat = $("#feat"), grid = $("#grid"); feat.replaceChildren(); grid.replaceChildren();
-  ORDER.forEach((i, k) => (k < SHOWN ? feat : grid).append(card(i, k)));
-  setFilmsLabel();
-  $("#more").textContent = fill(t.more, DATA.more);
+  const t = T(), feat = $("#feat"); feat.replaceChildren();
+  ORDER.forEach((i, k) => feat.append(card(i, k)));
+  renderFolder();
   const row = $("#marq-row"); row.replaceChildren();
   for (let r = 0; r < 2; r++) CASES.forEach(c => row.append(el("span", null, c.client)));
   $("#marq-sr").textContent = CASES.map(c => c.client).join(", ");
@@ -410,7 +407,7 @@ function recommend(){
   else { fmtI = 1; stages = ["aud", "pos", "story", "cont", "gtm"]; }
   if (dist === "yes") { stages = stages.concat("run"); if (fmtI === 1) fmtI = 2; }
   const pick = have === "agency"
-    ? { launch: "IMZO", trust: "Grand Capital", explain: "Uztelecom", social: "ZO'R TV" }[goal]
+    ? { launch: "IMZO", trust: "Grand Capital", explain: "Sales Doctor Academy", social: "ZO'R TV" }[goal]
     : { launch: "Good Day Cappuccino", trust: "To'xtaniyoz Ota", explain: "Sales Doctor Academy", social: "ZO'R TV" }[goal];
   return { fmt: fmtI, stages, ci: byClient(pick) };
 }
@@ -586,7 +583,6 @@ function render(){
   $("#why-img").alt = t.alt_p;
   renderHero(); nowTag();
   renderManifest();
-  renderTicker();
   renderStory();
   renderJourney();
   renderDuel();
@@ -597,7 +593,6 @@ function render(){
   renderProcess();
   renderBuilder();
   renderFrames();
-  $("#slots").textContent = fill(t.slots, DATA.slots);
   renderBrief();
   $$(".err[data-k], #send-err[data-k]").forEach(n => { if (!n.hidden) n.textContent = t[n.dataset.k]; });
   if (!$("#done").hidden) $("#done-msg").textContent = t.ok.replace("{n}", lastName);
@@ -605,6 +600,7 @@ function render(){
   const ct = $("#contacts"); ct.replaceChildren();
   const cv = DATA.contacts;
   [cv.phone, cv.telegram, cv.instagram, cv.email].forEach((v, i) => {
+    if (!v) return;  /* only contacts that really exist */
     const d = el("a", "ct"); d.href = contactHref(i, v); if (i === 1 || i === 2) { d.target = "_blank"; d.rel = "noopener"; }
     d.append(el("span", null, t.ct[i]), el("b", null, v)); ct.append(d);
   });
@@ -701,7 +697,7 @@ function finalStates(){
   $$(".step").forEach(s => s.classList.add("on")); $$("#tk .odo").forEach(odoRoll);
 }
 const motionOK = !!(window.ABM_MOTION && window.ABM_MOTION.init({
-  setStory, setScene, setDuel, setStep, reduce, beam, finalStates, rollTicker,
+  setStory, setScene, setDuel, setStep, reduce, beam, finalStates,
   manifest: setManifest, zoom: z => word && word.set(z), menuOpen: () => false,
   layout: () => { if (river) river.layout(); if (word) word.layout(); segKnob($("#jmode")); segKnob($("#modes")); },
   introSeen: !!store.get("abm2-intro", true), markIntro: () => store.set("abm2-intro", "1", true)

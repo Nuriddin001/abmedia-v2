@@ -6,7 +6,7 @@
 <title>AB Media — Storytelling & Go-to-market</title>
 <meta name="description" content="AB Media: storytelling and go-to-market campaigns that make customers know you and trust you. One team from the audit to the market.">
 <meta property="og:title" content="AB Media — storytelling and go-to-market for awareness and trust">
-<meta property="og:image" content="media/uztelecom.jpg">
+<meta property="og:image" content="media/good-day.jpg">
 <meta name="theme-color" content="#08090A">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -78,7 +78,6 @@
     </div>
   </section>
 
-  <section class="ticker" aria-label="AB Media"><div class="tk-row" id="tk"></div></section>
 
   <!-- customer journey: one ribbon of people, narrowing at every stage -->
   <section class="journey" id="journey" data-scene="journey">
@@ -125,8 +124,14 @@
     <div class="wrap">
       <h2 class="big-h rv" data-i="cs_h"></h2>
       <div class="feat" id="feat"></div>
-      <div class="grid" id="grid"></div>
-      <div class="more-row"><button class="more-btn mag" id="more-btn" type="button" aria-expanded="false" aria-controls="grid"><span id="more-lbl"></span><b id="more-n"></b><i aria-hidden="true"></i></button><p class="more" id="more"></p></div>
+      <!-- the other films sit in a folder: hover (tap on a phone) fans them up like cards -->
+      <div class="folder-row">
+        <div class="folder" id="folder">
+          <i class="fd-back" aria-hidden="true"></i>
+          <div class="fd-cards" id="fd-cards"></div>
+          <button class="fd-front" id="fd-front" type="button" aria-expanded="false" aria-controls="fd-cards"><span class="fd-l"><b id="fd-n"></b><span id="fd-t"></span></span></button>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -177,7 +182,7 @@
     <div class="wrap">
       <div class="rq-head"><h2 class="big-h rv" data-i="rq_h"></h2><p class="rq-p" data-i="rq_p"></p></div>
       <div class="rq-in">
-        <div class="rq-next"><div class="frames" id="frames"></div><p class="slots" id="slots"></p></div>
+        <div class="rq-next"><div class="frames" id="frames"></div></div>
         <div class="formcard" id="formcard">
           <form class="form" id="form" novalidate>
             <div class="brief" id="brief" hidden></div>

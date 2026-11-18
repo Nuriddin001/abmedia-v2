@@ -6,7 +6,7 @@
 <title>AB Media — Storytelling & Go-to-market</title>
 <meta name="description" content="AB Media: storytelling and go-to-market campaigns that make customers know you and trust you. One team from the audit to the market.">
 <meta property="og:title" content="AB Media — storytelling and go-to-market for awareness and trust">
-<meta property="og:image" content="media/uztelecom.jpg">
+<meta property="og:image" content="media/good-day.jpg">
 <meta name="theme-color" content="#08090A">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -78,7 +78,6 @@
     </div>
   </section>
 
-  <section class="ticker" aria-label="AB Media"><div class="tk-row" id="tk"></div></section>
 
   <!-- customer journey: one ribbon of people, narrowing at every stage -->
   <section class="journey" id="journey" data-scene="journey">
@@ -125,8 +124,14 @@
     <div class="wrap">
       <h2 class="big-h rv" data-i="cs_h"></h2>
       <div class="feat" id="feat"></div>
-      <div class="grid" id="grid"></div>
-      <div class="more-row"><button class="more-btn mag" id="more-btn" type="button" aria-expanded="false" aria-controls="grid"><span id="more-lbl"></span><b id="more-n"></b><i aria-hidden="true"></i></button><p class="more" id="more"></p></div>
+      <!-- the other films sit in a folder: hover (tap on a phone) fans them up like cards -->
+      <div class="folder-row">
+        <div class="folder" id="folder">
+          <i class="fd-back" aria-hidden="true"></i>
+          <div class="fd-cards" id="fd-cards"></div>
+          <button class="fd-front" id="fd-front" type="button" aria-expanded="false" aria-controls="fd-cards"><span class="fd-l"><b id="fd-n"></b><span id="fd-t"></span></span></button>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -177,7 +182,7 @@
     <div class="wrap">
       <div class="rq-head"><h2 class="big-h rv" data-i="rq_h"></h2><p class="rq-p" data-i="rq_p"></p></div>
       <div class="rq-in">
-        <div class="rq-next"><div class="frames" id="frames"></div><p class="slots" id="slots"></p></div>
+        <div class="rq-next"><div class="frames" id="frames"></div></div>
         <div class="formcard" id="formcard">
           <form class="form" id="form" novalidate>
             <div class="brief" id="brief" hidden></div>
@@ -221,7 +226,7 @@
   </div>
 </dialog>
 
-<script>window.ABM_DATA = {"projects":"60+","years":7,"total_views":"6M+","per_month":3,"slots":1,"more":50,"offer_bar":true,"offer_minutes":5,"bonus":{"en":"2 extra concept options, free","es":"2 opciones de concepto extra, gratis","ru":"2 дополнительных варианта концепции — бесплатно","ar":"خياران إضافيان للفكرة مجانًا"},"contacts":{"phone":"+1 929 652 4542","telegram":"@abmedia_uz","instagram":"@abmedia.uz","email":"info@abmedia.uz"},"featured":["Uztelecom","Asaka Motors","Good Day Cappuccino","Sales Doctor Academy"],"metrics":[{"client":"Uztelecom","views":"1.2M","result":{"en":"Brand recall +18%","es":"Recuerdo de marca +18%","ru":"Запоминаемость бренда +18%","ar":"تذكّر العلامة +18%"}},{"client":"Asaka Motors","views":"640K","result":{"en":"1,200+ test-drive requests in 30 days","es":"1.200+ solicitudes de prueba en 30 días","ru":"1 200+ заявок на тест-драйв за 30 дней","ar":"أكثر من 1200 طلب تجربة قيادة خلال 30 يومًا"}},{"client":"Good Day Cappuccino","views":"2.4M","result":{"en":"41% of viewers recalled the jingle","es":"El 41% recordó el jingle","ru":"41% зрителей запомнили джингл","ar":"41% من المشاهدين تذكّروا اللحن"}},{"client":"Sales Doctor Academy","views":"380K","result":{"en":"Course applications +27%","es":"Solicitudes a cursos +27%","ru":"Заявки на курсы +27%","ar":"طلبات الدورات +27%"}}],"cjm":{"base_reach":100000,"now":[100000,12000,3100,900],"film":[100000,21000,6400,1800],"reach_min":50000,"reach_max":3000000,"reach_default":300000}}; window.ABM_PREVIEW = true;</script>
+<script>window.ABM_DATA = {"offer_bar":true,"offer_minutes":5,"bonus":{"en":"2 extra concept options, free","es":"2 opciones de concepto extra, gratis","ru":"2 дополнительных варианта концепции — бесплатно","ar":"خياران إضافيان للفكرة مجانًا"},"contacts":{"phone":"+1 929 652 4542","telegram":null,"instagram":null,"email":null},"featured":["Good Day Cappuccino","Sales Doctor Academy"],"metrics":[],"cjm":{"base_reach":100000,"now":[100000,12000,3100,900],"film":[100000,21000,6400,1800],"reach_min":50000,"reach_max":3000000,"reach_default":300000}}; window.ABM_PREVIEW = true;</script>
 <!-- GSAP 3.12.5, ScrollTrigger 3.12.5 and Lenis 1.1.13, served from this site so no outside server can stall the page -->
 <script src="static/vendor/gsap.min.js"></script>
 <script src="static/vendor/ScrollTrigger.min.js"></script>
