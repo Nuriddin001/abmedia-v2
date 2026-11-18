@@ -19,6 +19,10 @@ const finePointer = matchMedia("(hover: hover) and (pointer: fine)").matches;
    and the planner, so the photos are not stuck behind 14 MB downloads; the viewing room always plays the full film */
 const LITE = matchMedia("(pointer: coarse)").matches || matchMedia("(max-width: 760px)").matches;
 const vsrc = name => "/media/" + (LITE ? "m/" : "") + name + ".mp4";
+/* on phones the films wait until the page and its photos have arrived: on a slow connection the text and the photos come first */
+const afterLoad = fn => { if (document.readyState === "complete") setTimeout(fn, 600); else addEventListener("load", () => setTimeout(fn, 600), { once: true }); };
+let pageReady = !LITE;
+if (LITE) afterLoad(() => { pageReady = true; if (reel.i >= 0) showClip(reel.i); monSync(); });
 const el = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
 const NS = "http://www.w3.org/2000/svg";
 function icon(id, cls){ const s = document.createElementNS(NS, "svg"); s.setAttribute("class", "ic" + (cls ? " " + cls : "")); s.setAttribute("aria-hidden", "true"); const u = document.createElementNS(NS, "use"); u.setAttribute("href", "#i-" + id); s.append(u); return s; }
@@ -69,7 +73,9 @@ const hv = [$("#hv0"), $("#hv1")];
 function clipStart(v){ const d = v.duration || 60; return Math.min(12, d * .12); }
 function showClip(k){
   reel.i = k; const c = CASES[MONT[k]], v = hv[reel.a], other = hv[1 - reel.a];
-  if (!v.dataset.src || v.dataset.src !== c.video) { v.dataset.src = c.video; v.src = vsrc(c.video); v.poster = "/media/" + c.video + ".jpg"; v.preload = "auto"; }
+  v.poster = "/media/" + c.video + ".jpg";
+  if (!pageReady) { v.classList.add("on"); nowTag(); return; }
+  if (!v.dataset.src || v.dataset.src !== c.video) { v.dataset.src = c.video; v.src = vsrc(c.video); v.preload = "auto"; }
   const go = () => { try { v.currentTime = clipStart(v); } catch (e) {} const p = v.play(); if (p && p.catch) p.catch(() => {}); v.classList.add("on"); other.classList.remove("on"); setTimeout(() => { if (!other.classList.contains("on")) other.pause(); }, 1300); };
   if (v.readyState >= 1) go(); else v.addEventListener("loadedmetadata", go, { once: true });
   nowTag();
@@ -287,7 +293,8 @@ function card(i, k){
   const cc = el("article", "cc");
   const media = el("button", "cc-media dev"); media.type = "button"; media.dataset.cursor = "play"; media.dataset.video = c.video;
   media.setAttribute("aria-label", t.open_case + ": " + c.client);
-  const im = el("img"); im.src = "/media/" + c.video + ".jpg"; im.alt = ""; im.loading = "lazy";
+  /* "lazy" must be set before the address, or the photo downloads at once even far down the page */
+  const im = el("img"); im.loading = "lazy"; im.decoding = "async"; im.src = "/media/" + c.video + ".jpg"; im.alt = "";
   const v = el("video"); v.muted = true; v.loop = true; v.playsInline = true; v.setAttribute("playsinline", ""); v.preload = "none";
   media.append(im, v, el("span", "tc", c.dur + (c.bts ? " + " + c.bts.dur : "")));
   media.addEventListener("click", () => openRoom(i));
@@ -429,9 +436,9 @@ function renderResult(){
   let mon = box.querySelector(".mon");
   if (!mon || changed) {
     mon = el("button", "mon"); mon.type = "button"; mon.dataset.cursor = "play";
-    const v = el("video"); v.muted = true; v.loop = true; v.playsInline = true; v.setAttribute("playsinline", ""); v.poster = "/media/" + cs.video + ".jpg";
-    /* the film loads only once the planner is on screen (see runDesk), so it never competes with the photos above */
-    if (!reduce) { v.preload = "none"; v.dataset.src = vsrc(cs.video) + "#t=6"; }
+    const v = el("video"); v.muted = true; v.loop = true; v.playsInline = true; v.setAttribute("playsinline", ""); v.dataset.poster = "/media/" + cs.video + ".jpg";
+    /* the film (and its cover) load only once the planner is near the screen (see runDesk), so they never compete with the photos above */
+    if (!reduce) { v.preload = "none"; v.dataset.src = vsrc(cs.video) + "#t=6"; } else v.poster = v.dataset.poster;
     const rec = el("span", "rec"); rec.append(el("i"), document.createTextNode("REC"));
     mon.append(v, rec, el("span", "l3"));
     mon.addEventListener("click", () => openRoom(desk.lastCase));
@@ -450,7 +457,8 @@ function renderResult(){
 }
 function monSync(){
   const v = $("#board .mon video"); if (!v || reduce) return;
-  if (desk.on) { if (!v.src && v.dataset.src) { v.src = v.dataset.src; v.preload = "auto"; } const p = v.play(); if (p && p.catch) p.catch(() => {}); }
+  if (desk.on && !v.poster) v.poster = v.dataset.poster;
+  if (desk.on && pageReady) { if (!v.src && v.dataset.src) { v.src = v.dataset.src; v.preload = "auto"; } const p = v.play(); if (p && p.catch) p.catch(() => {}); }
   else if (v.src) v.pause();
 }
 /* a light runs along the storyboard, panel by panel */
@@ -517,7 +525,7 @@ const SHOTS = [
 function renderFrames(){
   const t = T(), box = $("#frames"), first = !box.children.length;
   if (first) SHOTS.forEach((s, i) => {
-    const f = el("figure", "frame"), ph = el("div", "ph"), im = el("img"); im.src = s.img; im.alt = ""; im.loading = "lazy"; im.style.objectPosition = s.pos;
+    const f = el("figure", "frame"), ph = el("div", "ph"), im = el("img"); im.loading = "lazy"; im.decoding = "async"; im.src = s.img; im.alt = ""; im.style.objectPosition = s.pos;
     ph.append(im); const cap = el("figcaption"); cap.append(el("b", null, String(i + 1).padStart(2, "0")), el("h3")); f.append(ph, cap); box.append(f);
   });
   $$("#frames .frame").forEach((f, i) => { f.querySelector("h3").textContent = t.nx[i]; f.querySelector("img").alt = i < 2 ? t.name : ""; });
