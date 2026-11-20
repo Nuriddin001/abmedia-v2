@@ -246,7 +246,7 @@ const L = {
    ],
    [
     "Do you make films?",
-    "Not as a production studio. We build the story and run the go-to-market campaign; content, including video, is made for that story."
+    "Yes, we are a production studio. We make the films and the content ourselves, and build the story and the go-to-market campaign around them."
    ],
    [
     "What does go-to-market mean here?",
@@ -254,7 +254,7 @@ const L = {
    ],
    [
     "Can you work with our team or agency?",
-    "Yes. Your team makes the content, we lead the story and the launch."
+    "Yes. We plug into your team and work alongside it on the content, the story and the launch."
    ],
    [
     "How do you measure trust?",
@@ -572,7 +572,7 @@ const L = {
    ],
    [
     "¿Hacen películas?",
-    "No como productora. Construimos la historia y llevamos la campaña go-to-market; el contenido, incluido el video, se crea para esa historia."
+    "Sí, somos una productora. Hacemos nosotros mismos los videos y el contenido, y construimos a su alrededor la historia y la campaña go-to-market."
    ],
    [
     "¿Qué significa go-to-market aquí?",
@@ -580,7 +580,7 @@ const L = {
    ],
    [
     "¿Trabajan con nuestro equipo o agencia?",
-    "Sí. Tu equipo crea el contenido, nosotros llevamos la historia y el lanzamiento."
+    "Sí. Nos sumamos a tu equipo y trabajamos junto a él en el contenido, la historia y el lanzamiento."
    ],
    [
     "¿Cómo miden la confianza?",
@@ -898,7 +898,7 @@ const L = {
    ],
    [
     "Вы снимаете фильмы?",
-    "Мы не продакшн-студия. Мы строим историю и ведём кампанию go-to-market; контент, включая видео, создаётся под эту историю."
+    "Да, мы продакшн-студия. Сами снимаем видео и создаём контент, а вокруг них строим историю и кампанию go-to-market."
    ],
    [
     "Что значит go-to-market?",
@@ -906,7 +906,7 @@ const L = {
    ],
    [
     "Работаете с нашей командой или агентством?",
-    "Да. Контент делает ваша команда, мы ведём историю и запуск."
+    "Да. Мы подключаемся к вашей команде и работаем вместе с ней над контентом, историей и запуском."
    ],
    [
     "Как вы измеряете доверие?",
@@ -1224,7 +1224,7 @@ const L = {
    ],
    [
     "هل تصنعون أفلامًا؟",
-    "لسنا استوديو إنتاج. نبني القصة وندير حملة الدخول إلى السوق، ويُصنع المحتوى، ومنه الفيديو، لخدمة هذه القصة."
+    "نعم، نحن استوديو إنتاج. نصنع الأفلام والمحتوى بأنفسنا، ونبني حولها القصة وحملة الدخول إلى السوق."
    ],
    [
     "ماذا يعني الدخول إلى السوق هنا؟",
@@ -1232,7 +1232,7 @@ const L = {
    ],
    [
     "هل تعملون مع فريقنا أو وكالتنا؟",
-    "نعم. فريقك يصنع المحتوى، ونحن نقود القصة والإطلاق."
+    "نعم. ننضم إلى فريقك ونعمل معه على المحتوى والقصة والإطلاق."
    ],
    [
     "كيف تقيسون الثقة؟",
