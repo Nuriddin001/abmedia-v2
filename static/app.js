@@ -373,7 +373,7 @@ function renderProcess(){
   $$("#modes button").forEach(b => { const m = +b.dataset.m; b.textContent = t.modes[m]; b.setAttribute("aria-pressed", String(m === mode)); });
   segKnob($("#modes"));
   $("#mode-d").textContent = t.mode_d[mode];
-  const kinds = mode === 0 ? ["full", "full", "full", "full", "full", "full"] : ["full", "full", "full", "you", "sup", "sup"];
+  const kinds = mode === 0 ? ["full", "full", "full", "full", "full", "full"] : ["full", "full", "full", "with", "sup", "sup"];
   const ol = $("#steps"), on = $$("#steps .step.on").length;
   ol.querySelectorAll(".step").forEach(n => n.remove());
   t.steps.forEach(([h, p], i) => {

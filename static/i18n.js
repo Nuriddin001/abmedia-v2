@@ -129,12 +129,13 @@ const L = {
   ],
   "mode_d": [
    "We take it from the audit to the market and keep it running.",
-   "Your team makes the content. We lead the story and the launch."
+   "We plug into your team and make the content together; we lead the story and the launch."
   ],
   "chip": {
    "full": "AB Media",
    "sup": "Led by AB Media",
    "you": "Your team",
+   "with": "Together",
    "opt": "Optional"
   },
   "steps": [
@@ -455,12 +456,13 @@ const L = {
   ],
   "mode_d": [
    "Lo llevamos de la auditoría al mercado y lo mantenemos en marcha.",
-   "Tu equipo crea el contenido. Nosotros llevamos la historia y el lanzamiento."
+   "Nos sumamos a tu equipo y creamos el contenido juntos; nosotros llevamos la historia y el lanzamiento."
   ],
   "chip": {
    "full": "AB Media",
    "sup": "Dirige AB Media",
    "you": "Tu equipo",
+   "with": "Juntos",
    "opt": "Opcional"
   },
   "steps": [
@@ -781,12 +783,13 @@ const L = {
   ],
   "mode_d": [
    "От аудита до рынка — и поддерживаем кампанию дальше.",
-   "Контент делает ваша команда. Мы ведём историю и запуск."
+   "Мы подключаемся к вашей команде и делаем контент вместе; историю и запуск ведём мы."
   ],
   "chip": {
    "full": "AB Media",
    "sup": "Ведёт AB Media",
    "you": "Ваша команда",
+   "with": "Вместе",
    "opt": "По желанию"
   },
   "steps": [
@@ -1107,12 +1110,13 @@ const L = {
   ],
   "mode_d": [
    "من التدقيق إلى السوق، ونواصل إدارة الحملة.",
-   "فريقك يصنع المحتوى، ونحن نقود القصة والإطلاق."
+   "ننضم إلى فريقك ونصنع المحتوى معًا، ونقود القصة والإطلاق."
   ],
   "chip": {
    "full": "AB Media",
    "sup": "بقيادة AB Media",
    "you": "فريقك",
+   "with": "معًا",
    "opt": "اختياري"
   },
   "steps": [
