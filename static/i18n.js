@@ -9,7 +9,7 @@ const L = {
   "e_send": "We couldn't send your request. Please try again in a minute.",
   "e_rate": "Too many attempts. Please try again a little later.",
   "name": "Abror Bakhtiyarovich",
-  "role": "Storytelling & go-to-market, AB Media",
+  "role": "Production, storytelling & go-to-market, AB Media",
   "bar": "Request in 5 min, get a bonus:",
   "nav": [
    "Journey",
@@ -18,7 +18,7 @@ const L = {
    "FAQ"
   ],
   "cta": "Free business audit",
-  "hero_tag": "Storytelling and go-to-market campaigns for awareness and trust",
+  "hero_tag": "Production, storytelling and go-to-market campaigns for awareness and trust",
   "hero_cta": "Free business audit",
   "hero_line": "Be known.\nBe trusted.",
   "cue": "Scroll to play",
@@ -255,7 +255,7 @@ const L = {
    ],
    [
     "Can you work with our team or agency?",
-    "Yes. We plug into your team and work alongside it on the content, the story and the launch."
+    "Yes, but you don't need one: we bring our own team and make the content ourselves. If you have a team or agency, we plug in and work with it."
    ],
    [
     "How do you measure trust?",
@@ -266,7 +266,7 @@ const L = {
     "It depends on the market, the channels and the content. You get a budget after the audit call."
    ]
   ],
-  "foot": "Storytelling and go-to-market for awareness and trust.",
+  "foot": "Production, storytelling and go-to-market for awareness and trust.",
   "ct": [
    "Phone",
    "Telegram",
@@ -336,7 +336,7 @@ const L = {
   "e_send": "No pudimos enviar tu solicitud. Inténtalo de nuevo en un minuto.",
   "e_rate": "Demasiados intentos. Prueba un poco más tarde.",
   "name": "Abror Bakhtiyarovich",
-  "role": "Storytelling y go-to-market, AB Media",
+  "role": "Producción, storytelling y go-to-market, AB Media",
   "bar": "Solicita en 5 min y llévate un bono:",
   "nav": [
    "Recorrido",
@@ -345,7 +345,7 @@ const L = {
    "Preguntas"
   ],
   "cta": "Auditoría de negocio gratis",
-  "hero_tag": "Storytelling y campañas go-to-market para notoriedad y confianza",
+  "hero_tag": "Producción, storytelling y campañas go-to-market para notoriedad y confianza",
   "hero_cta": "Auditoría de negocio gratis",
   "hero_line": "Que te conozcan.\nQue confíen en ti.",
   "cue": "Desplázate para ver",
@@ -582,7 +582,7 @@ const L = {
    ],
    [
     "¿Trabajan con nuestro equipo o agencia?",
-    "Sí. Nos sumamos a tu equipo y trabajamos junto a él en el contenido, la historia y el lanzamiento."
+    "Sí, pero no hace falta: traemos nuestro propio equipo y hacemos el contenido nosotros. Si tienes un equipo o agencia, nos sumamos y trabajamos con ellos."
    ],
    [
     "¿Cómo miden la confianza?",
@@ -593,7 +593,7 @@ const L = {
     "Depende del mercado, los canales y el contenido. Recibes el presupuesto después de la llamada de auditoría."
    ]
   ],
-  "foot": "Storytelling y go-to-market para notoriedad y confianza.",
+  "foot": "Producción, storytelling y go-to-market para notoriedad y confianza.",
   "ct": [
    "Teléfono",
    "Telegram",
@@ -663,7 +663,7 @@ const L = {
   "e_send": "Не удалось отправить заявку. Попробуйте ещё раз через минуту.",
   "e_rate": "Слишком много попыток. Попробуйте чуть позже.",
   "name": "Аброр Бахтиярович",
-  "role": "Сторителлинг и go-to-market, AB Media",
+  "role": "Продакшн, сторителлинг и go-to-market, AB Media",
   "bar": "Заявка за 5 минут — и бонус:",
   "nav": [
    "Путь клиента",
@@ -672,7 +672,7 @@ const L = {
    "Вопросы"
   ],
   "cta": "Бесплатный бизнес-аудит",
-  "hero_tag": "Сторителлинг и кампании go-to-market для узнаваемости и доверия",
+  "hero_tag": "Продакшн, сторителлинг и кампании go-to-market для узнаваемости и доверия",
   "hero_cta": "Бесплатный бизнес-аудит",
   "hero_line": "Вас узнают.\nВам доверяют.",
   "cue": "Листайте, чтобы смотреть",
@@ -909,7 +909,7 @@ const L = {
    ],
    [
     "Работаете с нашей командой или агентством?",
-    "Да. Мы подключаемся к вашей команде и работаем вместе с ней над контентом, историей и запуском."
+    "Да, но своя команда не обязательна: мы подключаем свою команду и делаем контент сами. Если у вас есть команда или агентство, мы подключаемся и работаем вместе с ними."
    ],
    [
     "Как вы измеряете доверие?",
@@ -920,7 +920,7 @@ const L = {
     "Зависит от рынка, каналов и контента. Бюджет назовём после звонка-аудита."
    ]
   ],
-  "foot": "Сторителлинг и go-to-market для узнаваемости и доверия.",
+  "foot": "Продакшн, сторителлинг и go-to-market для узнаваемости и доверия.",
   "ct": [
    "Телефон",
    "Telegram",
@@ -990,7 +990,7 @@ const L = {
   "e_send": "تعذّر إرسال طلبك. حاول مجددًا بعد دقيقة.",
   "e_rate": "محاولات كثيرة. حاول بعد قليل.",
   "name": "أبرور بختياروفيتش",
-  "role": "سرد القصص والدخول إلى السوق، AB Media",
+  "role": "الإنتاج وسرد القصص والدخول إلى السوق، AB Media",
   "bar": "اطلب خلال 5 دقائق واحصل على مكافأة:",
   "nav": [
    "رحلة العميل",
@@ -999,7 +999,7 @@ const L = {
    "الأسئلة"
   ],
   "cta": "تدقيق أعمال مجاني",
-  "hero_tag": "سرد القصص وحملات الدخول إلى السوق للشهرة والثقة",
+  "hero_tag": "الإنتاج وسرد القصص وحملات الدخول إلى السوق للشهرة والثقة",
   "hero_cta": "تدقيق أعمال مجاني",
   "hero_line": "ليعرفوك.\nوليثقوا بك.",
   "cue": "مرّر للتشغيل",
@@ -1236,7 +1236,7 @@ const L = {
    ],
    [
     "هل تعملون مع فريقنا أو وكالتنا؟",
-    "نعم. ننضم إلى فريقك ونعمل معه على المحتوى والقصة والإطلاق."
+    "نعم، لكنك لا تحتاج إلى فريق: نأتي بفريقنا ونصنع المحتوى بأنفسنا. وإن كان لديك فريق أو وكالة، ننضم إليهم ونعمل معهم."
    ],
    [
     "كيف تقيسون الثقة؟",
@@ -1247,7 +1247,7 @@ const L = {
     "تعتمد على السوق والقنوات والمحتوى. تحصل على الميزانية بعد مكالمة التدقيق."
    ]
   ],
-  "foot": "سرد القصص والدخول إلى السوق للشهرة والثقة.",
+  "foot": "الإنتاج وسرد القصص والدخول إلى السوق للشهرة والثقة.",
   "ct": [
    "الهاتف",
    "تيليغرام",
